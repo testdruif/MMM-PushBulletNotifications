@@ -9,7 +9,7 @@ Module.register("MMM-PushBulletNotifications", {
     defaults: {
         accessToken: "", //PushBullet API Access Token
         endToEndPassword: null,
-        numberOfNotifications: 3,
+        numberOfNotifications: 1,
         filterTargetDeviceName: "", //Only show pushes send to all devices or the filterd target device
         showPushesSentToAllDevices: true, //Show pushes to all devices
         onlyAllowCommandsFromSourceDevices: [],
@@ -255,6 +255,10 @@ Module.register("MMM-PushBulletNotifications", {
                 this.updateDom();
 			}			
         }
+	else if (notification === "URL") {
+                this.sendNotification('PAGE_CHANGED',1);
+                this.sendNotification('SWD_URL', payload);
+	}
         else if (notification === "FILE") {
             //Notifiy other modules there is a PushBullet file upload
             this.sendNotification("PUSHBULLET_FILE_UPLOAD", payload);

@@ -322,6 +322,15 @@ module.exports = NodeHelper.create({
         //Filter out command pushes
         filteredPushes.forEach(function (p) {
             //Filter out command Magic Mirror
+            if (p.type === 'link' && p.url != null) { //For now only accept type 'note'. Type 'url' and 'file' not yet implemented
+		if (p.url.includes("youtu") {
+			var vidRegEx = /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+			var url = [];
+			url.push("https://www.youtube.com/embed/" + p.url.match(vidRegEx)[1] + "?autoplay=1&modestbranding=1&iv_load_policy=3&rel=0");
+			var payload = ({"url": url});
+			self.sendSocketNotification('URL', payload);
+			}
+		}
             if (p.type === 'note' && p.body != null && !p.body.startsWith("mm:")) { //For now only accept type 'note'. Type 'url' and 'file' not yet implemented
 
                 //Do not show dismissed pushes if showDimissedPushes is set to false
