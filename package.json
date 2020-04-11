@@ -7,12 +7,12 @@
     "url": "git+https://github.com/basknol/MMM-PushBulletNotifications.git"
   },
   "keywords": [
-    "MagicMirror",    
+    "MagicMirror",
     "pushbullet",
     "phone notification",
     "notification",
     "smart mirror"
-  ],  
+  ],
   "author": "Bas Knol",
   "license": "MIT",
   "bugs": {

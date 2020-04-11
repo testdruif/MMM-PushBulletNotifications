@@ -60,7 +60,6 @@ Module.register("MMM-PushBulletNotifications", {
             // Only display how many notifications are specified by the config
             self.notifications.slice(0, this.config.numberOfNotifications).forEach(function (o) {
                 var header;
-
                 switch (o.type.toLowerCase()) {
                     //Normal push
                     case "note":
