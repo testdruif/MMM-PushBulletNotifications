@@ -32,6 +32,7 @@ Module.register("MMM-PushBulletNotifications", {
         showModuleIfNoNotifications: true,
         noNotificationsMessage: "No new notifications",
         debugMode: false,
+	urlNotification: "test",
     },
 
     requiresVersion: "2.3.1", // Minimum required version of MagicMirror
@@ -255,8 +256,7 @@ Module.register("MMM-PushBulletNotifications", {
 			}			
         }
 	else if (notification === "URL") {
-                this.sendNotification('PAGE_CHANGED',1);
-                this.sendNotification('SWD_URL', payload);
+                this.sendNotification(this.config.urlNotification, payload);
 	}
         else if (notification === "FILE") {
             //Notifiy other modules there is a PushBullet file upload
